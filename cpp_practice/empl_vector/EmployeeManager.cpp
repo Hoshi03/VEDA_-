@@ -1,6 +1,16 @@
 #include "EmployeeManager.h"
 #include "FulltimeWorker.h"
 #include "TemporaryWorker.h"
+#include <bits/stdc++.h>
+
+bool sortByNameAsc(Employee* s1, Employee* s2) {
+    return s1->getName().compare(s2->getName()) < 0;
+}
+
+//bool sortByNameAsc(Employee* s1, Employee* s2) {
+//    return s1->getName() < s2->getName();
+//}
+
 
 EmployeeManager::EmployeeManager()/* : empNum(0)*/ {
     std::cout << "관리자 생성\n";
@@ -46,6 +56,35 @@ void EmployeeManager::showAllSalary() const {
         (*it)->showSalary();
     }
 }
+
+void EmployeeManager::showSalaryNameAsc()  {
+    sort(empList.begin(), empList.end(), sortByNameAsc);
+    for (auto it = empList.begin(); it != empList.end(); ++it) {
+        (*it)->showSalary();
+    }
+}
+
+void EmployeeManager::showAboveSalary() const {
+    int tmp = 0;
+    cin >> tmp;
+    for (auto it = empList.begin(); it != empList.end(); ++it) {
+        if ((*it)->getPay() >= tmp) (*it)->showSalary();
+    }
+}
+
+
+void EmployeeManager::showFindEmpl() const {
+    string tmp;
+    cin >> tmp;
+    for (auto it = empList.begin(); it != empList.end(); ++it) {
+        if ((*it)->getName() == tmp) {
+            (*it)->showSalary();
+            return;
+        }
+    }
+    cout << "그런 사원은 없어요" << '\n';
+}
+
 
 void EmployeeManager::showTotalSalary() const {
     int res = 0;

@@ -1,7 +1,2 @@
-﻿  EmployeeManager.cpp
-  FulltimeWorker.cpp
-  TemporaryWorker.cpp
-  employee.cpp
-  employee_main.cpp
-  코드를 생성하고 있습니다...
-  empl.vcxproj -> C:\Users\change08\Desktop\gitt\cpp_practice\empl\x64\Debug\empl.exe
+﻿  employee_main.cpp
+  empl.vcxproj -> C:\Users\change08\Desktop\gitt\cpp_practice\empl_vector\x64\Debug\empl.exe

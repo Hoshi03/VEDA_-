@@ -17,7 +17,10 @@ public:
 	~EmployeeManager();
 	void addEmployee();
 	void showAllSalary() const;
+	void showAboveSalary() const;
+	void showSalaryNameAsc();
 	void showTotalSalary() const;
+	void showFindEmpl() const;
 
 	
 };

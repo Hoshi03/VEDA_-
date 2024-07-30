@@ -17,5 +17,6 @@ public:
 
 	virtual int getPay() const = 0;
 	virtual void showSalary() const = 0;
+	string getName() { return name; }
 };
 #endif
