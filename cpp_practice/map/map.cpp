@@ -1,12 +1,25 @@
 #include <iostream>
-#include <bits/stdc++.h>
+#include <fstream>
+#include <random>
 using namespace std;
 
-int main() {
 
-	vector<int> tmp = { 1, 2, 3, 4, 5 };
-	int res = 0;
-	for_each(tmp.begin(), tmp.end(), [&res](int a) {cout << a << " "; cout << "\n"; res += a; });
-	cout << res << '\n';
-	return 0;
+int main() {
+	const char* srcFile = "cap.jpg";
+	const char* destFile = "capcopy.jpg";
+
+	ifstream fsrc(srcFile, ios::in | ios::binary);
+
+	ofstream fdest(srcFile, ios::out | ios::binary);
+		
+	char buf[1024];
+	while (!fsrc.eof())
+	{
+		fsrc.read(buf, 1024); 
+		int n = fsrc.gcount();
+		fdest.write(buf, n);
+	}
+
+	fsrc.close();
+	fdest.close();
 }

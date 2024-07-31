@@ -34,12 +34,31 @@ void EmployeeManager::addEmployee() {
         case 1:
             std::cout << "이름, 사번, 월급여를 입력하세요: ";
             std::cin >> name >> empNum >> salary;
+
+            try
+            {
+                if (empNum < 0) throw empNum;
+            }
+            catch (int exception)
+            {
+                cout << exception << " 예외 발생, 사번은 음수가 될 수 없습니다, 다시 입력\n";
+                return;
+            }
             empl = new FulltimeWorker(name, empNum, salary);
             empList.push_back(empl);
             break;
         case 2:
             std::cout << "이름, 사번, 일급여, 근무일수를 입력하세요: ";
             std::cin >> name >> empNum >> salary >> days;
+            try
+            {
+                if (empNum < 0) throw empNum;
+            }
+            catch (int exception)
+            {
+                cout << exception << " 예외 발생, 사번은 음수가 될 수 없습니다, 다시 입력\n";
+                return;
+            }
             empl = new TemporaryWorker(name, empNum, salary, days);
             empList.push_back(empl);
             break;
